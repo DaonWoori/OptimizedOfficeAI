@@ -22,7 +22,7 @@ from ultralytics import YOLO
 import time
 import math
 
-FILE_PATH = "C:/Users/DaonWoori/OptimizedOfficeAI/Review_site"
+FILE_PATH = "/Users/bchank/Team_project_2/OptimizedOfficeAI/Review_site"
 
 # Create your views here.
 def home(request):
