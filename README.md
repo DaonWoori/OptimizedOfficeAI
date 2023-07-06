@@ -13,15 +13,23 @@
 <li>CNN 모델 제작 ( Domain 분류 ), 데이터 수집 및 전처리</li>
 </div>
 <br>
+<div>
 <h1>프로젝트 개요</h1>
+<div>
 </br>
 <br>
+<div>
 <h3>프로젝트 파이프라인</h3>
+</div>
 </br>
 <br>
+<div>
 <h3>수행 내용 파이프라인</h3>
+</div>
 </br>
 <br>
+<div>
 <h3>프로젝트 결과물</h3>
+</div>
 </br>
 
