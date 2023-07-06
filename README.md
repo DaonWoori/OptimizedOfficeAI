@@ -1,6 +1,12 @@
-# OptimizedOfficeAI
-
-<h3>f</h3>
+<html>
+<head>
+  <title>My Web Page</title>
+</head>
+<body>
+  <h1>Welcome to My Web Page</h1>
+  <p>This is a paragraph of text.</p>
+</body>
+</html>
 
 - 변경사항
 Data 폴더 내에 기존 이미지 저장
