@@ -1,8 +1,6 @@
 # OptimizedOfficeAI
 
-# 개발환경 
-![Uploading pngwing.com.png…]()
-
+<h3>f</h3>
 
 - 변경사항
 Data 폴더 내에 기존 이미지 저장
