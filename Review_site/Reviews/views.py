@@ -22,6 +22,10 @@ from ultralytics import YOLO
 import time
 import math
 
+# views.py : 웹 페이지의 동작 로직을 정의하는 파일
+
+# 사용자가 업로드한 파일이 저장되는 경로 (로컬 폴더)
+
 FILE_PATH = "/Users/bchank/Team_project_2/OptimizedOfficeAI/Review_site"
 
 # Create your views here.
@@ -43,11 +47,11 @@ def calculate_distance(point):
 
 # 이미지 도메인 분류 로직
 def img_domain_clf(img_url):
-    # 이미지 경로 설정(받아온 url과 로컬 환경의 경로 합쳐주기)
-    path = FILE_PATH + img_url
-    print(path)
 
-    # 이미지 불러오기
+    # 이미지 경로 설정
+    path = FILE_PATH + img_url
+
+    # 이미지 로드
     img = image.load_img(path, target_size=(224, 224))
 
     # 이미지 전처리
@@ -55,28 +59,32 @@ def img_domain_clf(img_url):
     img = img / 255.0
     img = tf.expand_dims(img, axis=0)
 
-    # AI 모델 로드
+    # AI 모델 로드 (파일 형식 : h5)
     model = tf.keras.models.load_model(FILE_PATH + '/ai_models/CNN_Model_Dataset2.h5', compile=False)
     
     # 이미지 분류 수행
+
+    # 추론 시간 측정을 위한 코드는 현 주석 처리 (start_time ~ diff_time)
     # start_time = time.time()
     prediction = model.predict(img)
     # end_time = time.time()
 
     # diff_time = end_time - start_time
-
-    # 분류 결과 반환 -> 수행 시간 소수점 4자리까지만 반환
+    
+    # 0.5를 기준으로 0.5를 초과하는 경우 '사내 제품 홍보용 사진'으로 분류
+    # 0.5 미만인 경우 '실제 사용 사진(리뷰)'으로 분류
     result = prediction[0][0]
     if result > 0.5:
         domain = '제품'
     else:
         domain = '실사용'
-
+    
+    # 결과값 리턴
     return domain
 
 # 이미지 클래스 분류 로직
 def img_object_clf(img_url):
-    # 이미지 경로 설정(받아온 url과 로컬 환경의 경로 합쳐주기)
+    # 이미지 경로 설정
     path = FILE_PATH + img_url
 
     # 모델 불러오기 
@@ -178,6 +186,7 @@ def index(request):
     product = request.GET.get('product', 'ALL')
     star = request.GET.get('star', 'ALL')
     
+    # ORM
     # 날짜와 관련한 정렬
     if sort == '최신등록순':
         reviews = Review_Models.objects.all().order_by('-dt_created')
@@ -209,7 +218,7 @@ def index(request):
 
     return render(request, 'Reviews/index.html', {'page_obj':page_obj,'page':page, 'paginator':paginator, 'sort':sort, 'domain':domain, 'product':product, 'star':star, 'PRODUCT_MAPPING':PRODUCT_MAPPING})
 
-# 리뷰 작성 페이지 로직
+# 리뷰 업로드 페이지 로직
 @csrf_exempt
 def upload(request):
     ### 사용자가 폼을 통해 입력을 했을 경우, 
@@ -217,11 +226,14 @@ def upload(request):
 
         # 입력된 내용들을 form이라는 변수에 저장
         form = FileUploadForm(request.POST, request.FILES)
-
-        if form.is_valid(): # form이 유효하다면,
-            post = form.save(commit=False) # form 데이터 저장(임시 저장)
+        # 유효성 검사
+        if form.is_valid(): 
+            
+            # form 데이터 저장(임시 저장)
+            post = form.save(commit=False) 
             post.user = request.user
-            post.save() # form 데이터를 DB에 저장
+            # form 데이터를 DB에 저장
+            post.save()                    
 
             ### 데이터 분류 로직 ###
             review = Review_Models.objects.get(id=post.id)
@@ -242,7 +254,7 @@ def upload(request):
     else:
         form = FileUploadForm()
 
-    # form이 유효하지 않다면, 기존 form 형식 유지 /
+    # form이 유효하지 않다면, 기존 form 형식 유지 
     return render(request, 'Reviews/review_upload.html', {'form':form})
 
 # 리뷰 상세보기 페이지 로직
@@ -261,9 +273,11 @@ def update(request, post_id):
         # 입력된 내용들을 form이라는 변수에 저장
         update_form = FileUploadForm(request.POST, request.FILES, instance=review)
 
-        if update_form.is_valid(): # form이 유효하다면,
-            post = update_form.save(commit=False) # form 데이터 저장(임시 저장)
-            post.save() # form 데이터를 DB에 저장
+        if update_form.is_valid():
+            # form 데이터 저장(임시 저장) 
+            post = update_form.save(commit=False) 
+            # form 데이터를 DB에 저장
+            post.save() 
 
             ### 데이터 분류 로직 ###
             review = Review_Models.objects.get(id=post.id)

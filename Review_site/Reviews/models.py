@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 import os
 from uuid import uuid4
 
+# models.py : 데이터 모델을 정의하는 파일
+
 imgvalidator = FileExtensionValidator(allowed_extensions=['jpg', 'png', 'jpeg'], message='다음과 같은 형식의 확장자만 사용 가능합니다(jpg, png, jpeg)')
 
 def rename_imagefile_to_uuid(instance, filename): 	# instance : Feed 모델에서 __str__로 반환해주는 값 현재는 title로 지정

@@ -10,6 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+# Django 프로젝트의 전역 설정을 담당하는 파일
+## Django 어플리케이션의 동작을 제어하는 설정과 구성을 정의
+
+### DEBUG : 디버그 모드 여부 설정 (디버그 모드에서는 오류 메시지 표기, 개발 중인 코드 변경 사항이 자동으로 반영)
+### DATABASES : 데이터베이스 연결 설정을 정의하는 변수 (데이터 베이스 종류, 호스트, 포트, 사용자 이름, 비밀 번호 설정 가능)
+### INSTALLED_APPS : Django 어플리케이션의 설치된 앱 목록을 정의하는 변수 (새로운 앱을 추가하거나 기존 앱을 제거할 때 이 변수를 수정)
+### STATIC_URL : 정적 파일의 URL과 실제 파일이 위치할 디렉토리를 설정하는 변수
+### MEDIA_URL : : 미디어 파일(사용자가 업로드한 파일)의 URL과 실제 파일이 저장될 디렉토리를 설정하는 변수
+### TEMPLATES : 템플릿 엔진 설정을 정의하는 변수
+### LANGUAGE_CODE : 언어 코드와 시간대를 설정하는 변수
+
 from pathlib import Path
 import os
 

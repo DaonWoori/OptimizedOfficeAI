@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 from Reviews import views
 
+# 해당 url로 접근 시 views.py로 라우팅
 urlpatterns = [
     path('', views.home, name="home"),
     path('admin/', admin.site.urls),
