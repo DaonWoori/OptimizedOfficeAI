@@ -1,44 +1,35 @@
-# OptimizedOfficeAI
-
-# 개발환경 
-
-- 가상환경 생성
-conda create --name OOA python=3.9.16
-
-- 가상환경 활성화
-conda activate OOA
-
-- GPU사용을 위한 CUDA & cudnn 설치
-conda install -c conda-forge cudatoolkit=11.8 cudnn=8.7.0
-
-- tensorflow 프레임워크 설치
-conda install "tensorflow<2.11"
-
-- tensorflow GPU 테스트
-python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
-
-- DJANGO 4.2.2 버전 설치
-conda install -c conda-forge django=4.2.2
-
-- matplotlib 4.2.2 버전 설치
-pip install matplotlib
-
-- nbformat 5.7.0 버전 설치
-pip install nbformat=5.7.0
-
-# BaseModel 폴더
-베이스 모델 
-
-- BaseModel 최초 기동 테스트
-2023-06-08 11:12
-
-- 변경사항
-Data 폴더 내에 기존 이미지 저장
-BaseModel
- ㄴ Data
-     ㄴAll_Image
-     ㄴAll_Image_mini
-
-파일 참조 경로 변경
-예) %run ./Dataset.ipynb
+<h1>사무용품 이미지 AI 개선 프로젝트</h1>
+<li>사무용품 이미지 AI Model 성능 개선 및 리뷰 웹 사이트 개발</li>
+<li>테스트 배포 완료 (ngrok 활용)</li>
+<div>
+<h3>프로젝트 팀 구성 및 역할</h3>
+<li>팀원 1 : YOLO v8 모델 제작 ( Class 분류 ), 데이터 수집 및 전처리</li>
+<li>팀원 2 : CNN 모델 제작 ( Domain 분류 ), 데이터 수집 및 전처리</li>
+<li>팀원 3 : 웹 페이지 개발, 데이터 수집 및 전처리</li>
+<li>팀원 4 : 웹 페이지 개발, 데이터 수집 및 전처리, 배포</li>
+</div>
+<div>
+<h3>프로젝트에서 수행한 내용</h3>
+<li>CNN 모델 제작 ( Domain 분류 ), 데이터 수집 및 전처리</li>
+</div>
+<br>
+<div>
+<h1>프로젝트 개요</h1>
+<div>
+</br>
+<br>
+<div>
+<h1>프로젝트 파이프라인</h1>
+</div>
+</br>
+<br>
+<div>
+<h1>수행 내용 파이프라인</h1>
+</div>
+</br>
+<br>
+<div>
+<h1>프로젝트 결과물</h1>
+</div>
+</br>
 
