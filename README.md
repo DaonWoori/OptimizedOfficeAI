@@ -1,14 +1,24 @@
 # OptimizedOfficeAI
 
-> AI 모델을 활용한 사무용품 리뷰 사이트인 Ol'reviews 개발
-> 
-> 프로젝트 기간: 2023.06.07 ~ 2023.06.30
-> 
-> Skills: Tensorflow, Django, YOLOv8
-> 
-> 깃허브 링크: [https://github.com/DaonWoori/OptimizedOfficeAI](https://github.com/DaonWoori/OptimizedOfficeAI "Github")  
->   
-> 출처: 코드스테이츠 AIB 부트캠프
+## 목차
+
+1. [프로젝트 소개](#프로젝트-소개)
+2. [프로젝트 배경](#프로젝트-배경)
+3. [프로젝트 목표](#프로젝트-목표)
+4. [문제 인식](#문제-인식)
+5. [프로젝트 진행 과정](#프로젝트-진행-과정)
+6. [프로젝트 기능 구현](#프로젝트-기능-구현)
+7. [결과 정리](#결과-정리)
+8. [프로젝트 회고](#프로젝트-회고)
+
+### 프로젝트 소개
+```
+AI 모델을 활용한 사무용품 리뷰 사이트인 Ol'reviews 개발
+
+- 프로젝트 기간: 2023.06.07 ~ 2023.06.30
+- Skills: Tensorflow, Django, YOLOv8
+- 출처: 코드스테이츠 AIB 부트캠프
+```
 
 ### 프로젝트 배경
 
